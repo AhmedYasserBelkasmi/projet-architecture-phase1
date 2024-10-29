@@ -1,31 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 <?import org.kordamp.bootstrapfx.scene.layout.Panel?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<!--<Panel styleClass="panel-primary" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.groupes.Controller.MainController">-->
-<Panel styleClass="panel-primary" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane styleClass="panel-primary" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.groupes.Controller.MainController">
     <top>
-        <Label styleClass="h3" text="Student Management System" />
+        <VBox alignment="CENTER" spacing="20" styleClass="header">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label styleClass="h2" text="Système de Gestion des Groupes">
+                <graphic>
+                    <FontIcon iconLiteral="fas-graduation-cap" iconSize="36"/>
+                </graphic>
+            </Label>
+        </VBox>
     </top>
     <center>
-        <TabPane>
+        <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="tab-pane">
             <Tab text="Sujets">
-                <fx:include source="SujetView.fxml" />
+                <graphic>
+                    <FontIcon iconLiteral="fas-book" iconSize="16"/>
+                </graphic>
+                <BorderPane>
+                    <center>
+                        <fx:include source="SujetView.fxml" />
+                    </center>
+                </BorderPane>
             </Tab>
             <Tab text="Unités d'Enseignement">
-              <!--  <fx:include source="UniteEnseignementView.fxml" /> -->
+                <graphic>
+                    <FontIcon iconLiteral="fas-university" iconSize="16"/>
+                </graphic>
+                <BorderPane>
+                    <center>
+                        <fx:include source="UniteEnseignementView.fxml" />
+                    </center>
+                </BorderPane>
             </Tab>
             <Tab text="Personnes">
-                <!--  <fx:include source="PersonneView.fxml" />-->
-              </Tab>
-              <Tab text="Groupes">
-              <!--    <fx:include source="GroupeView.fxml" />-->
-              </Tab>
-          </TabPane>
-      </center>
-  </Panel>
+                <graphic>
+                    <FontIcon iconLiteral="fas-users" iconSize="16"/>
+                </graphic>
+                <BorderPane>
+                    <center>
+                       <fx:include source="EleveView.fxml" />
+                    </center>
+                </BorderPane>
+            </Tab>
+            <Tab text="Groupes">
+                <graphic>
+                    <FontIcon iconLiteral="fas-layer-group" iconSize="16"/>
+                </graphic>
+                <BorderPane>
+                    <center>
+                        <!-- Uncomment when the file is ready -->
+                        <!-- <fx:include source="GroupeView.fxml" /> -->
+                    </center>
+                </BorderPane>
+            </Tab>
+        </TabPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" styleClass="footer">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="© 2024 Système de Gestion des Groupes" styleClass="text-muted"/>
+        </HBox>
+    </bottom>
+</BorderPane>
