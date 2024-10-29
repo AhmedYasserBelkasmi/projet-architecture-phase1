@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.bootstrapfx.scene.layout.Panel?>
+
+<Panel styleClass="panel-primary" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.groupes.Controller.SujetController">
+    <top>
+        <VBox spacing="10">
+            <Label styleClass="h4" text="Gestion des Sujets" />
+            <HBox spacing="10">
+                <TextField fx:id="intituleField" promptText="Intitulé" />
+                <Button fx:id="addButton" text="Ajouter" onAction="#handleAdd" styleClass="btn,btn-primary" />
+                <Button fx:id="updateButton" text="Mettre à jour" onAction="#handleUpdate" styleClass="btn,btn-info" />
+                <Button fx:id="deleteButton" text="Supprimer" onAction="#handleDelete" styleClass="btn,btn-danger" />
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="sujetTable">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" />
+                <TableColumn fx:id="intituleColumn" text="Intitulé" />
+            </columns>
+        </TableView>
+    </center>
+</Panel>

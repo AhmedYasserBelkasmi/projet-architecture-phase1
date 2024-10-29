@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.bootstrapfx.scene.layout.Panel?>
+
+<!--<Panel styleClass="panel-primary" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.groupes.Controller.MainController">-->
+<Panel styleClass="panel-primary" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <Label styleClass="h3" text="Student Management System" />
+    </top>
+    <center>
+        <TabPane>
+            <Tab text="Sujets">
+                <fx:include source="SujetView.fxml" />
+            </Tab>
+            <Tab text="Unités d'Enseignement">
+              <!--  <fx:include source="UniteEnseignementView.fxml" /> -->
+            </Tab>
+            <Tab text="Personnes">
+                <!--  <fx:include source="PersonneView.fxml" />-->
+              </Tab>
+              <Tab text="Groupes">
+              <!--    <fx:include source="GroupeView.fxml" />-->
+              </Tab>
+          </TabPane>
+      </center>
+  </Panel>
