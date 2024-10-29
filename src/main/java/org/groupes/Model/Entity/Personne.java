@@ -4,54 +4,79 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Personne {
+
+
+
+    public enum Type {eleve, enseignant}
+
     private int id;
-    private String firstName;
-    private String lastName;
-    private int age ;
-    private List<Groupe> groupes; // l'etudiant peut etre attribue a plusieure groupe ou none pour les eleves
+    private String nom;
+    private String prenom;
+    private Type type;
+    private List<Groupe> groupes;
 
 
-    public Personne(int id, String firstName, String lastName, int age) {
+    public Personne(int id, String nom, String prenom, Type type) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.type = type;
         this.groupes = new ArrayList<>();
     }
 
-    public Personne(String firstName, String lastName, int age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
+
+    public Personne(String nom, String prenom, Type type) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.type = type;
         this.groupes = new ArrayList<>();
+    }
+
+    public Personne(int id, String nom, String prenom) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+    }
+
+    public Personne(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setFirstName(String firstName) {
-        firstName = firstName;
+    public void setType(Type type) {
+        this.type = type;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setGroupes(List<Groupe> groupes) {
+        this.groupes = groupes;
     }
 
-    public void setLastName(String lastName) {
-        lastName = lastName;
+    public String getNom() {
+        return nom;
     }
 
-    public int getAge() {
-        return age;
+    public void setNom(String nom) {
+        this.nom = nom; // Corrected this line
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom; // Corrected this line
+    }
+
+    public Type getType() {
+        return type; // Getter for type
     }
 
     public List<Groupe> getGroupe() {
