@@ -24,6 +24,11 @@ public class UniteEnseignement {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
     public String getCode() {
         return code;
     }
@@ -39,4 +44,6 @@ public class UniteEnseignement {
     public void setDesignation(String designation) {
         this.designation = designation;
     }
+
+
 }
