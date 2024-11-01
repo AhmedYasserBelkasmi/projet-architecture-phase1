@@ -43,4 +43,9 @@ public class Sujet {
     public void setGroupe(List<Groupe> groupe) {
         this.groupes = groupe;
     }
+
+    @Override
+    public String toString() {
+        return "intitule :" + intitule;
+    }
 }

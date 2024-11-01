@@ -45,5 +45,10 @@ public class UniteEnseignement {
         this.designation = designation;
     }
 
-
+    @Override
+    public String toString() {
+        return
+                "code : " + code + '\'' +
+                ", designation : " + designation;
+    }
 }
