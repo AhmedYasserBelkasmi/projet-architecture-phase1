@@ -92,12 +92,8 @@ public class Personne {
 
     @Override
     public String toString() {
-        return "Personne{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", type=" + type +
-                ", groupes=" + groupes +
-                '}';
+        return " Nom : " + nom  +
+                ", Prénom : " + prenom  +
+                ", Type : " + type + "\n" ;
     }
 }

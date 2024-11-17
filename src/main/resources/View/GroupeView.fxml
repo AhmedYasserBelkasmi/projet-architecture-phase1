@@ -22,6 +22,7 @@
                 <ComboBox fx:id="sujetComboBox" promptText="Sélectionner Sujet" styleClass="form-control" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
                 <ComboBox fx:id="uniteEnseignementComboBox" promptText="Sélectionner Unite d'Enseignement" styleClass="form-control" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
             </GridPane>
+            <TextField fx:id="searchField" promptText="Chercher par Nom..." />
             <Label text="Sélectionner Personnes" alignment="CENTER"/>
             <ListView fx:id="personneListView" prefHeight="100" styleClass="form-control" />
             <HBox spacing="10" alignment="CENTER">
@@ -36,12 +37,14 @@
             <padding>
                 <Insets top="10" right="20" bottom="20" left="20"/>
             </padding>
+
             <TableView fx:id="groupeTable" VBox.vgrow="ALWAYS" styleClass="table,table-striped,table-bordered">
                 <columns>
                     <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
-                    <TableColumn fx:id="identifiantColumn" text="Identifiant" prefWidth="150"/>
+                    <TableColumn fx:id="identifiantColumn" text="Identifiant" prefWidth="50"/>
                     <TableColumn fx:id="sujetColumn" text="Sujet" prefWidth="150"/>
                     <TableColumn fx:id="uniteColumn" text="Unite d'Enseignement" prefWidth="150"/>
+                    <TableColumn fx:id="personneColumn" text="Eléves" prefWidth="150"/>
                 </columns>
                 <columnResizePolicy>
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>

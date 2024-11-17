@@ -40,7 +40,7 @@ public class EleveController {
         try {
             personnes.setAll(personneDAO.getAllEleves());
         } catch (SQLException e) {
-            showAlert("Error", "Failed to load eleves: " + e.getMessage());
+            showAlert("Erreur", "Échec du chargement des élèves : " + e.getMessage());
         }
     }
 
@@ -55,11 +55,12 @@ public class EleveController {
                 personneDAO.addEleve(newEleve);
                 personnes.add(newEleve);
                 clearFields();
+                showAlert("Succès", "Élève ajouté avec succès.");
             } catch (SQLException e) {
-                showAlert("Error", "Failed to add eleve: " + e.getMessage());
+                showAlert("Erreur", "Échec de l'ajout de l'élève : " + e.getMessage());
             }
         } else {
-            showAlert("Warning", "Please fill all fields.");
+            showAlert("Avertissement", "Veuillez remplir tous les champs.");
         }
     }
 
@@ -77,14 +78,15 @@ public class EleveController {
                     personneDAO.updateEleve(selectedEleve);
                     personneTable.refresh();
                     clearFields();
+                    showAlert("Succès", "Élève mis à jour avec succès.");
                 } catch (SQLException e) {
-                    showAlert("Error", "Failed to update eleve: " + e.getMessage());
+                    showAlert("Erreur", "Échec de la mise à jour de l'élève : " + e.getMessage());
                 }
             } else {
-                showAlert("Warning", "Please fill all fields.");
+                showAlert("Avertissement", "Veuillez remplir tous les champs.");
             }
         } else {
-            showAlert("Warning", "Please select an eleve to update.");
+            showAlert("Avertissement", "Veuillez sélectionner un élève à mettre à jour.");
         }
     }
 
@@ -95,11 +97,12 @@ public class EleveController {
             try {
                 personneDAO.deleteEleve(selectedEleve.getId());
                 personnes.remove(selectedEleve);
+                showAlert("Succès", "Élève supprimé avec succès.");
             } catch (SQLException e) {
-                showAlert("Error", "Failed to delete eleve: " + e.getMessage());
+                showAlert("Erreur", "Échec de la suppression de l'élève : " + e.getMessage());
             }
         } else {
-            showAlert("Warning", "Please select an eleve to delete.");
+            showAlert("Avertissement", "Veuillez sélectionner un élève à supprimer.");
         }
     }
 
