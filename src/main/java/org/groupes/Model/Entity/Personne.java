@@ -6,6 +6,9 @@ import java.util.List;
 public class Personne {
 
 
+    public Personne() {
+
+    }
 
     public enum Type {eleve, enseignant}
 
@@ -85,5 +88,12 @@ public class Personne {
 
     public void setGroupe(List<Groupe> groupe) {
         this.groupes = groupe;
+    }
+
+    @Override
+    public String toString() {
+        return " Nom : " + nom  +
+                ", Prénom : " + prenom  +
+                ", Type : " + type + "\n" ;
     }
 }

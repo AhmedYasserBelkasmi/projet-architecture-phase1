@@ -2,13 +2,14 @@ package org.groupes.Model.DAO;
 
 import org.groupes.Model.Entity.Groupe;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IGroupeDAO {
-    public List<Groupe> getAllGroupes();
-    public Groupe getGroupeyByPersonne(int personneId);
-    public Groupe getGroupeyById(int id);
-    public boolean groupeIdExists(int id);
-    public boolean groupeNameExists(String name);
-    public void addGrpoupe(Groupe groupe);
+
+    void addGroupe(Groupe groupe) throws SQLException;
+    Groupe getGroupeById(int id) throws SQLException;
+    List<Groupe> getAllGroupes() throws SQLException;
+    void updateGroupe(Groupe groupe) throws SQLException;
+    void deleteGroupe(int id) throws SQLException;
 }

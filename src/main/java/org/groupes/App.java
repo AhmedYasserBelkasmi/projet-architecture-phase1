@@ -1,16 +1,14 @@
 package org.groupes;
 
-import org.groupes.Model.DAO.ISujetDAO;
-import org.groupes.Model.Entity.Sujet;
-import org.groupes.Model.DAO.SujetDAO;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
-import java.sql.SQLException;
 import java.util.Objects;
+
 
 /**
  * Hello world!

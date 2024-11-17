@@ -36,7 +36,7 @@ public class UniteEnseignementController {
         try {
             uniteEnseignements.setAll(uniteEnseignementDAO.getAllUnitesEnseignements());
         } catch (SQLException e) {
-            showAlert("Error", "Failed to load unités d'enseignement: " + e.getMessage());
+            showErrorAlert("Erreur", "Échec du chargement des unités d'enseignement: " + e.getMessage());
         }
     }
 
@@ -44,14 +44,17 @@ public class UniteEnseignementController {
     private void handleAdd() {
         String code = codeField.getText().trim();
         String designation = designationField.getText().trim();
-        if (!code.isEmpty() && !designation.isEmpty()) {
+        if (code.isEmpty() || designation.isEmpty()) {
+            showErrorAlert("Erreur", "Tous les champs doivent être remplis.");
+        } else {
             try {
                 UniteEnseignement newUE = new UniteEnseignement(code, designation);
                 uniteEnseignementDAO.addUniteEnseignement(newUE);
                 uniteEnseignements.add(newUE);
+                showInfoAlert("Succès", "Unité d'enseignement ajoutée avec succès.");
                 clearFields();
             } catch (SQLException e) {
-                showAlert("Error", "Failed to add unité d'enseignement: " + e.getMessage());
+                showErrorAlert("Erreur", "Échec de l'ajout de l'unité d'enseignement: " + e.getMessage());
             }
         }
     }
@@ -62,19 +65,22 @@ public class UniteEnseignementController {
         if (selectedUE != null) {
             String newCode = codeField.getText().trim();
             String newDesignation = designationField.getText().trim();
-            if (!newCode.isEmpty() && !newDesignation.isEmpty()) {
+            if (newCode.isEmpty() || newDesignation.isEmpty()) {
+                showErrorAlert("Erreur", "Tous les champs doivent être remplis.");
+            } else {
                 try {
                     selectedUE.setCode(newCode);
                     selectedUE.setDesignation(newDesignation);
                     uniteEnseignementDAO.updateUniteEnseignement(selectedUE);
                     uniteEnseignementTable.refresh();
+                    showInfoAlert("Succès", "Unité d'enseignement mise à jour avec succès.");
                     clearFields();
                 } catch (SQLException e) {
-                    showAlert("Error", "Failed to update unité d'enseignement: " + e.getMessage());
+                    showErrorAlert("Erreur", "Échec de la mise à jour de l'unité d'enseignement: " + e.getMessage());
                 }
             }
         } else {
-            showAlert("Warning", "Please select an unité d'enseignement to update.");
+            showErrorAlert("Avertissement", "Veuillez sélectionner une unité d'enseignement à mettre à jour.");
         }
     }
 
@@ -85,11 +91,12 @@ public class UniteEnseignementController {
             try {
                 uniteEnseignementDAO.deleteUniteEnseignement(selectedUE.getId());
                 uniteEnseignements.remove(selectedUE);
+                showInfoAlert("Succès", "Unité d'enseignement supprimée avec succès.");
             } catch (SQLException e) {
-                showAlert("Error", "Failed to delete unité d'enseignement: " + e.getMessage());
+                showErrorAlert("Erreur", "Échec de la suppression de l'unité d'enseignement: " + e.getMessage());
             }
         } else {
-            showAlert("Warning", "Please select an unité d'enseignement to delete.");
+            showErrorAlert("Avertissement", "Veuillez sélectionner une unité d'enseignement à supprimer.");
         }
     }
 
@@ -98,11 +105,19 @@ public class UniteEnseignementController {
         designationField.clear();
     }
 
-    private void showAlert(String title, String content) {
+    private void showErrorAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showInfoAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
-        alert.setContentText(content);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }
